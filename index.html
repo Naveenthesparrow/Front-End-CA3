@@ -14,48 +14,53 @@
   </head>
   <body>
     <header>
+      <!-- Nav Bar -->
       <nav class="navbar">
-        <div class="logo">Discover Dish</div>
+        <!-- Logo -->
+        <div class="logo">👨‍🍳Discover Dish😋</div>
+        <!-- Nav Links -->
         <ul class="nav-links">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
+          <li><button onclick="goToAbout()">About Us</button></li>
+          <li><button>Donate🎁</button></li>
         </ul>
       </nav>
     </header>
+    <!-- Main -->
     <div class="container">
+      <!-- Search Bar -->
       <div class="dish-wrapper">
+        <!-- Search Result -->
         <div class="dish-search">
+          <!-- title -->
           <h2 class="title">Find Meals For Your Ingredients</h2>
+          <!-- search -->
           <div class="dish-search-box">
+            <!-- input -->
             <input
               type="text"
               class="search-control"
               placeholder="Search"
               id="search-input"
             />
+            <!-- button  -->
             <button type="submit" class="search-btn cls" id="search-btn">
               <i class="fas fa-search"></i>
             </button>
           </div>
         </div>
-
+        <!-- Meal Result -->
+        <h3>Popular Dishes</h3>
+        <!-- Random Meals -->
+        <div id="random-meals-container" class="meals-container"></div>
+        <!-- Meal Details -->
         <div class="dish-result">
-          <h2 class="title">Reciepe</h2>
+          <h2 class="title">Your Dish</h2>
           <div id="dish">
             <!-- dish item -->
-            <!-- <div class = "dish-item">
-            <div class = "dish-img">
-              <img src = "food.jpg" alt = "food">
-            </div>
-            <div class = "dish-name">
-              <h3>Potato Chips</h3>
-              <a href = "#" class = "recipe-btn">Get Recipe</a>
-            </div>
-          </div> -->
+            <!-- </div> -->
             <!-- end of dish item -->
           </div>
         </div>
-
         <div class="dish-details">
           <!-- recipe close btn -->
           <button
@@ -68,24 +73,27 @@
 
           <!-- meal content -->
           <div class="dish-details-content">
-            <!-- <h2 class = "recipe-title">Meals Name Here</h2>
-          <p class = "recipe-category">Category Name</p>
-          <div class = "recipe-instruct">
-            <h3>Instructions:</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo blanditiis quis accusantium natus! Porro, reiciendis maiores molestiae distinctio veniam ratione ex provident ipsa, soluta suscipit quam eos velit autem iste!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet aliquam voluptatibus ad obcaecati magnam, esse numquam nisi ut adipisci in?</p>
-          </div>
-          <div class = "recipe-meal-img">
-            <img src = "food.jpg" alt = "">
-          </div>
-          <div class = "recipe-link">
-            <a href = "#" target = "_blank">Watch Video</a>
-          </div> -->
+            <!-- </div> -->
           </div>
         </div>
       </div>
     </div>
 
+    <!-- About us Page-->
+    <section class="about" id="about">
+      <div class="content">
+        <h2>About Us</h2>
+        <p>
+          Welcome to DishDiscover! <br />
+          At DishDiscover, we're more than just a food website – we're your
+          culinary compass, guiding you through a world of flavors, textures,
+          and gastronomic delights. Our journey began with a simple idea: to
+          celebrate the diversity of global cuisines and make the discovery of
+          exceptional dishes an adventure for every palate.
+        </p>
+      </div>
+    </section>
+    <!-- JavaScript -->
     <script src="script.js"></script>
   </body>
 </html>
