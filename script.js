@@ -1,24 +1,29 @@
+//  This code block waits for the DOM to be fully loaded and then calls the getRandomMeals function
 document.addEventListener("DOMContentLoaded", () => {
   getRandomMeals();
 });
-
+//  Get the search button element
 const searchBtn = document.getElementById("search-btn");
+//  Get the search input element
 const randomMealsContainer = document.getElementById("random-meals-container");
+//  Get the meal list element
 const mealList = document.getElementById("dish");
+//  Get the meal details content element
 const mealDetailsContent = document.querySelector(".dish-details-content");
+//  Get the recipe close button
 const recipeCloseBtn = document.getElementById("recipe-close-btn");
-
+// Scroll to the about section on the page.
 function goToAbout() {
   var aboutSection = document.getElementById("about");
   aboutSection.scrollIntoView({ behavior: "smooth" });
 }
-// Event listeners
+// Add an event listener to the search button that calls the searchAndDisplayMeals function when clicked
 searchBtn.addEventListener("click", searchAndDisplayMeals);
 mealList.addEventListener("click", getMealRecipe);
 recipeCloseBtn.addEventListener("click", () => {
   mealDetailsContent.parentElement.classList.remove("showRecipe");
 });
-
+// Fetches random meals from the API and displays them
 function getRandomMeals() {
   fetchMeals("https://www.themealdb.com/api/json/v1/1/random.php")
     .then((data) => {
@@ -27,7 +32,7 @@ function getRandomMeals() {
     })
     .catch((error) => console.error("Error fetching random meals:", error));
 }
-
+//function to display random meal
 function displayRandomMeals(meals, containerId) {
   const mealsContainer = document.getElementById(containerId);
   mealsContainer.innerHTML = "";
@@ -44,7 +49,7 @@ function displayRandomMeals(meals, containerId) {
     mealsContainer.appendChild(mealDiv);
   });
 }
-
+// function to fetch meal
 function fetchMeals(url) {
   return fetch(url)
     .then((response) => response.json())
@@ -53,7 +58,7 @@ function fetchMeals(url) {
       throw error;
     });
 }
-
+// function to create meal
 function displaySearchedMeals(meals) {
   let html = "";
   meals.forEach((meal) => {
@@ -63,7 +68,7 @@ function displaySearchedMeals(meals) {
   mealList.innerHTML = html;
   mealList.classList.remove("notFound");
 }
-
+// function to search and display meal
 function searchAndDisplayMeals() {
   let searchInputTxt = document.getElementById("search-input").value.trim();
   fetchMeals(
@@ -86,7 +91,7 @@ function searchAndDisplayMeals() {
     })
     .catch((error) => console.error("Error fetching meal list:", error));
 }
-
+// function to get meal recipe
 function getMealRecipe(e) {
   e.preventDefault();
   if (e.target.classList.contains("recipe-btn")) {
@@ -98,18 +103,16 @@ function getMealRecipe(e) {
       .catch((error) => console.error("Error fetching meal recipe:", error));
   }
 }
-
 // Fetch meals from the API
 function fetchMeals(url) {
   return fetch(url)
     .then((response) => response.json())
     .catch((error) => {
       console.error("Error fetching meals:", error);
-      throw error; // Rethrow the error to be caught by the caller
+      throw error;
     });
 }
-
-// Create HTML for a meal
+// Create HTML for meal
 function createMealHTML(meal) {
   return `
         <div class="dish-item" data-id="${meal.idMeal}">
@@ -123,8 +126,7 @@ function createMealHTML(meal) {
         </div>
       `;
 }
-
-// Create a modal
+// Create HTML for meal recipe
 function mealRecipeModal(meal) {
   console.log(meal);
   meal = meal[0];
